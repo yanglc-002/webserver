@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .menu{
+            display: block;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 48px;background-color:cornflowerblue;color: white">
+        资讯管理部
+    </div>
+    <div>
+        <div style="position: absolute;top:48px;bottom: 0;left: 0;width: 200px;background-color: lightcyan;">
+            <a class="menu" href="/userinfo">用户管理</a>
+            <a class="menu" href="/usergroup">用户组管理</a>
+        </div>
+        <div style="position:absolute;top:48px;left: 210px;bottom: 0;right: 0;overflow: auto">
+
+            <h3>添加用户</h3>
+            <form method="POST" action="/userinfo">
+                <input type="text" name="user" />
+                <input type="text" name="pwd" />
+                <input type="text" name="email" />
+                <input type="text" name="gid" />
+                <input type="submit" value="添加"/>
+            </form>
+
+            <h3>用户列表</h3>
+            <ul>
+                {% for row in user_list %}
+                    <li>
+                        <a href="/userdetail-{{ row.id }}/">{{ row.username }}</a> |
+                        <a href="/userdel-{{ row.id }}/">删除</a> |
+                        <a href="/useredit-{{ row.id }}/">编辑</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>
