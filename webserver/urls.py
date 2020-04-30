@@ -23,7 +23,14 @@ urlpatterns = [
     url(r'^home', views.home),
     url(r'^orm', views.orm),
     url(r'^userinfo', views.userinfo),
-    url(r'^userdetail', views.userdetail),
-    url(r'^userdel', views.userdel),
-    url(r'^useredit', views.useredit),
+    url(r'^groupinfo', views.groupinfo),
+    url(r'^hostinfo', views.hostinfo),
+    url(r'^idcinfo', views.idcinfo),
+    url(r'^userdetail-(?P<nid>\d+)/', views.userdetail),
+    url(r'^userdel-(?P<nid>\d+)/', views.userdel),
+    url(r'^useredit-(?P<nid>\d+)/', views.useredit),
+    url(r'^hostdetail-(?P<nid>\d+)/', views.hostdetail),
+    url(r'^hostedit-(?P<nid>\d+)/', views.hostedit),
+    url(r'^hostdel-(?P<nid>\d+)/', views.hostdel),
+
 ]

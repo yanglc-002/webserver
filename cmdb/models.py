@@ -22,7 +22,7 @@ class host_idc(models.Model):
     idcname = models.CharField(max_length=64)
     idcagent = models.CharField(max_length=64)
     idcaddress = models.CharField(max_length=64)
-    billing_hostid = models.ForeignKey(to="host_list",on_delete=models.CASCADE)
+    # billing_hostid = models.ForeignKey(to="host_list",on_delete=models.CASCADE)
 
 
 class host_manager(models.Model):
@@ -31,7 +31,7 @@ class host_manager(models.Model):
     hostpasswd = models.CharField(max_length=64)
     hostport = models.IntegerField(max_length=5)
     # shipping_hostid = models.ForeignKey(to="host_list",to_field='id')
-    hostlistid = models.ForeignKey(to="host_list",on_delete=models.CASCADE)
+    # hostlistid = models.ForeignKey(to="host_list",on_delete=models.CASCADE)
 
 class host_list(models.Model):
     # id = models.AutoField(primary_key=True)
@@ -41,5 +41,7 @@ class host_list(models.Model):
     hostconfig = models.CharField(max_length=64)
     hostcreate_data =models.DateTimeField(auto_now_add=True)
     hostupdate_data = models.DateTimeField(auto_now_add=True)
+    billing_idcid = models.ForeignKey(to="host_idc",on_delete=models.CASCADE)
+    billing_managerid = models.ForeignKey(to="host_manager",on_delete=models.CASCADE)
 
 

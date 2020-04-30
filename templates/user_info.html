@@ -12,6 +12,13 @@
             padding: 5px;
 
         }
+
+
+        label {
+            width: 80px;
+            text-align: right;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -21,17 +28,39 @@
     <div>
         <div style="position: absolute;top:48px;bottom: 0;left: 0;width: 200px;background-color: lightcyan;">
             <a class="menu" href="/userinfo">用户管理</a>
-            <a class="menu" href="/usergroup">用户组管理</a>
+            <a class="menu" href="/groupinfo">用户组管理</a>
+            <a class="menu" href="/hostinfo">主机管理</a>
+            <a class="menu" href="/idcinfo">机房管理</a>
         </div>
         <div style="position:absolute;top:48px;left: 210px;bottom: 0;right: 0;overflow: auto">
 
             <h3>添加用户</h3>
             <form method="POST" action="/userinfo">
-                <input type="text" name="user" />
-                <input type="text" name="pwd" />
-                <input type="text" name="email" />
-                <input type="text" name="gid" />
-                <input type="submit" value="添加"/>
+                <p>
+                    <label for="username">用户名：</label>
+                    <input id=username type="text" name="user" />
+                </p>
+                <p>
+                    <label for="password">密码：</label>
+                    <input id=password  type="password" name="pwd" />
+                </p>
+                <p>
+                    <label for="email">邮箱：</label>
+                    <input id=email type="text" name="email" />
+                </p>
+                <p>
+                    <label for="groupname">组：</label>
+                    <select id="groupname" name="gid">
+                          <option value ="1">超级管理员</option>
+                          <option value ="2">管理员</option>
+                          <option value="3">普通用户</option>
+
+                    </select>
+                </p>
+                <p>
+
+                    <input type="submit" value="添加"/>
+                </p>
             </form>
 
             <h3>用户列表</h3>
