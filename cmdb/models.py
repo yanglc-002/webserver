@@ -29,7 +29,7 @@ class host_manager(models.Model):
     # id = models.AutoField(primary_key=True)
     hostuser =  models.CharField(max_length=64)
     hostpasswd = models.CharField(max_length=64)
-    hostport = models.IntegerField(max_length=5)
+    hostport = models.IntegerField(max_length=10)
     # shipping_hostid = models.ForeignKey(to="host_list",to_field='id')
     # hostlistid = models.ForeignKey(to="host_list",on_delete=models.CASCADE)
 

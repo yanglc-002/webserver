@@ -35,9 +35,11 @@ def home(request):
 def userinfo(request):
      if request.method == "GET":
         user_list = models.User.objects.all()
+        group_list = models.group.objects.all()
+
         # print(user_list.query)
         # QuerySet [obj,obj,]
-        return render(request, 'user_info.html', {'user_list': user_list})
+        return render(request, 'user_info.html', {'user_list': user_list,'group_list': group_list})
      elif request.method == 'POST':
          u = request.POST.get('user')
          p = request.POST.get('pwd')
@@ -163,9 +165,9 @@ def orm(request):
     #     email='yangc@taiwu.com',
     #     gid_id=2)
     # models.User.objects.create(username='wangzx', password='123', email='wangzx@taiwu.com', gid_id=2)
-    # h1 = models.host_list.objects.create(hosttype="虚拟机",
-    #                                      hostname="SHTW-Messagequeue02",
-    #                                      hostip="10.10.201.112",
+    # models.host_list.objects.create(hosttype="虚拟机",
+    #                                      hostname="SHTW-Messagequeue12",
+    #                                      hostip="10.10.201.111",
     #                                      hostconfig="vCPU*8,8G内存，150G HD",
     #                                      billing_idcid_id=1,
     #                                      billing_managerid_id=1)
@@ -179,16 +181,7 @@ def orm(request):
     # #查
 
     ##跨表查
-    hostobj = models.host_list.objects.filter(id=2).values("hosttype",
-                                            "hostname",
-                                            "hostconfig",
-                                            "billing_managerid__hostuser",
-                                            "billing_managerid__hostport",
-                                            "billing_managerid__hostpasswd",
-                                            "billing_idcid__idcname",
-                                            "billing_idcid__idcagent",
-                                            "billing_idcid__idcaddress")
-
+    hostobj = models.host_list.objects.all()
 
     # result = models.User.objects.filter(id=1).first()
     # result = models.User.objects.all()
@@ -206,7 +199,7 @@ def orm(request):
     # #更新
     # models.UserInfo.objects.filter(id=3).update(password="69")
     #
-    return HttpResponse(hostobj)
+    return HttpResponse(hostobj.values())
 
 
 

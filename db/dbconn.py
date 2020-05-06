@@ -41,9 +41,9 @@ def mysqldb_operation(db_exeute):
      mysqldb_connect("192.168.190.34",3306,"root","MyNewPass4!","mysitedb",db_exeute)
 
 
-#
-# if __name__ == "__main__":
-#    mysqldb_operation("SELECT *  from users")
-#    print(results_list[0])
-#    # dict1 = dict(results_list[0])
-#    #    # print(dict1)
+
+if __name__ == "__main__":
+   mysqldb_operation("SELECT *  from cmdb_user")
+   print(results_list[0])
+   # dict1 = dict(results_list[0])
+   #    # print(dict1)

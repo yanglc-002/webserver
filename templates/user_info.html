@@ -51,9 +51,12 @@
                 <p>
                     <label for="groupname">组：</label>
                     <select id="groupname" name="gid">
-                          <option value ="1">超级管理员</option>
-                          <option value ="2">管理员</option>
-                          <option value="3">普通用户</option>
+
+                         {% for row in group_list %}
+
+                          <option value ={{ row.id }}>{{ row.groupname }}</option>
+
+                         {% endfor %}
 
                     </select>
                 </p>
