@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .menu{
+            display: block;
+            padding: 5px;
+
+        }
+
+
+        label {
+            width: 80px;
+            text-align: right;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 48px;background-color:cornflowerblue;color: white">
+        资讯管理部
+    </div>
+    <div>
+        <div style="position: absolute;top:48px;bottom: 0;left: 0;width: 200px;background-color: lightcyan;">
+            <a class="menu" href="/userinfo">用户管理</a>
+            <a class="menu" href="/groupinfo">用户组管理</a>
+            <a class="menu" href="/hostinfo">主机管理</a>
+            <a class="menu" href="/idcinfo">机房管理</a>
+        </div>
+        <div style="position:absolute;top:48px;left: 210px;bottom: 0;right: 0;overflow: auto">
+
+            <h3>添加主机</h3>
+            <form method="POST" action="/hostinfo">
+
+                    <label for="hosttype">主机类型：</label>
+                    <select id="hosttype" name="hosttype">
+                              <option value ="虚拟机">虚拟机</option>
+                              <option value ="宿主机">宿主机</option>
+                    </select>
+                    <label for="hostname"> 主机名：</label>
+                    <input id=hostname type="text" name="hostname" />
+
+                    <label for="hostip"> 主机IP：</label>
+                    <input id=hostip type="text" name="hostip" />
+
+                    <label for="hostconfig"> 主机配置：</label>
+                    <input id=hostconfg type="text" name="hostconfig" />
+
+
+
+                    <label for="hostidc">IDC：</label>
+                    <select id="hostidc" name="idcid">
+                              <option value ="1">南汇机房</option>
+                              <option value ="2">漕宝路机房</option>
+                               <option value ="3">总部机房</option>
+                    </select>
+
+                    <label for="hostmanager">管理用户：</label>
+                    <select id="hostmanager" name="mid">
+                              <option value ="1">twrsp01</option>
+                              <option value ="2">twrsp02</option>
+
+                    </select>
+                    <input type="submit" value="添加"/>
+            </form>
+
+            <h3>主机列表</h3>
+            <ul>
+                {% for row in host_list %}
+                    <li>
+                        <a href="/hostdetail-{{ row.id }}/">{{ row.hosttype }} {{ row.hostname }}</a> |
+                        <a>{{ row.hostip }} {{ row.hostconfig}}</a>
+                        <a href="/hostdel-{{ row.id }}/">删除</a> |
+                        <a href="/hostedit-{{ row.id }}/">编辑</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>

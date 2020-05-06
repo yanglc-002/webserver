@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .menu{
+            display: block;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 48px;background-color:cornflowerblue;color: white">
+        资讯管理部
+    </div>
+    <div>
+        <div style="position: absolute;top:48px;bottom: 0;left: 0;width: 200px;background-color: lightcyan;">
+            <a class="menu" href="/userinfo">用户管理</a>
+            <a class="menu" href="/groupinfo">用户组管理</a>
+            <a class="menu" href="/hostinfo">主机管理</a>
+            <a class="menu" href="/idcinfo">机房管理</a>
+        </div>
+        <div style="position:absolute;top:48px;left: 210px;bottom: 0;right: 0;overflow: auto">
+            <h1>编辑用户：{{ obj.username }}</h1>
+            <form method="post" action="/useredit-{{ obj.id }}/">
+                <p>
+                    <input style="display: none" type="text" name="id" value="{{ obj.id }}" />
+                </p>
+                <p>
+                    <input type="text" name="username" value="{{ obj.username }}" />
+
+                </p>
+                <p>
+                    <input type="text" name="password" value="{{ obj.password }}"/>
+
+                </p>
+                <p>
+                    <input type="text" name="email" value="{{ obj.email }}"/>
+
+                </p>
+                <p>
+                     <input type="text" name="gid" value="{{ obj.gid_id }}"/>
+                </p>
+                
+
+                     <input type="submit" value="提交" />
+            </form>
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>

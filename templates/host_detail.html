@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .menu{
+            display: block;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 48px;background-color:cornflowerblue;color: white">
+        资讯管理部
+    </div>
+    <div>
+        <div style="position: absolute;top:48px;bottom: 0;left: 0;width: 200px;background-color: lightcyan;">
+            <a class="menu" href="/userinfo">用户管理</a>
+            <a class="menu" href="/groupinfo">用户组管理</a>
+            <a class="menu" href="/hostinfo">主机管理</a>
+            <a class="menu" href="/idcinfo">机房管理</a>
+        </div>
+        <div style="position:absolute;top:48px;left: 210px;bottom: 0;right: 0;overflow: auto">
+
+            <h1>{{ obj.hostname }}的主机详细信息</h1>
+
+            <h5>主机id:{{ obj.id }}</h5>
+            <h5>主机类型：{{ obj.hosttype }}</h5>
+            <h5>主机名：{{ obj.hostname }}</h5>
+            <h5>主机ip：{{ obj.hostip }}</h5>
+            <h5>主机配置：{{ obj.hostconfig }}</h5>
+            <h5>主机登录账户：{{ obj2.hostuser }}</h5>
+            <h5>主机登录密码：{{ obj2.hostpasswd }}</h5>
+            <h5>主机登录端口：{{ obj2.hostport}}</h5>
+            <h5>主机存放位置：{{ obj3.idcname }}</h5>
+            <h5>主机代理商：{{ obj3.idcagent }}</h5>
+            <h5>主机地址：{{ obj3.idcaddress }}</h5>
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>
