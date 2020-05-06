@@ -42,6 +42,17 @@
 
             </form>
 
+            <h3>IDC列表</h3>
+            <ul>
+                {% for row in idc_list %}
+                    <li>
+                        <a href="/idcdetail-{{ row.id }}/">{{ row.id }}</a>
+                        <a>{{ row.idcname }} {{ row.idcaddress }} {{ row.idcagent }}</a>
+                        <a href="/idcdel-{{ row.id }}/">删除</a>
+                        <a href="/idcedit-{{ row.id }}/">编辑</a>
+                    </li>
+                {% endfor %}
+            </ul>
 
 
         </div>

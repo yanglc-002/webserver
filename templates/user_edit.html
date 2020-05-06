@@ -44,7 +44,27 @@
 
                 </p>
                 <p>
-                     <input type="text" name="gid" value="{{ obj.gid_id }}"/>
+
+                    当前用户属组:<h5>{{ obj.gid.groupname }}</h5>
+                    <label for="groupname"> 请选择更改：</label>
+                    <select id="groupname" name="gid">
+
+                         {% for row in group_list %}
+
+                          <option value ={{ row.id }}>{{ row.groupname }}</option>
+
+                         {% endfor %}
+
+                    </select>
+
+
+
+
+
+
+
+
+
                 </p>
                 
 

@@ -79,7 +79,8 @@ def userdel(request,nid):
 def useredit(request,nid):
     if request.method == "GET":
         obj = models.User.objects.filter(id=nid).first()
-        return render(request, 'user_edit.html', {'obj': obj})
+        group_list = models.group.objects.all()
+        return render(request, 'user_edit.html', {'obj': obj,'group_list': group_list})
     elif request.method == "POST":
         nid = request.POST.get('id')
         u = request.POST.get('username')
@@ -152,7 +153,8 @@ def hostdel(request,nid):
 
 
 def idcinfo(request):
-    return render(request, 'idc_info.html')
+    idc_list = models.host_idc.objects.all()
+    return render(request, 'idc_info.html', {'idc_list': idc_list})
 
 
 def orm(request):

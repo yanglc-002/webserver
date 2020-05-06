@@ -5,6 +5,8 @@ from django.db import models
 class group(models.Model):
     # gid = models.AutoField(primary_key=True)
     groupname = models.CharField(max_length=32)
+    groupcreate_data = models.DateTimeField(auto_now_add=True, null=True)
+    groupupdate_data = models.DateTimeField(auto_now_add=True, null=True)
 
 class User(models.Model):
     # uid = models.AutoField(primary_key=True)
@@ -29,7 +31,7 @@ class host_manager(models.Model):
     # id = models.AutoField(primary_key=True)
     hostuser =  models.CharField(max_length=64)
     hostpasswd = models.CharField(max_length=64)
-    hostport = models.IntegerField(max_length=10)
+    hostport = models.IntegerField()
     # shipping_hostid = models.ForeignKey(to="host_list",to_field='id')
     # hostlistid = models.ForeignKey(to="host_list",on_delete=models.CASCADE)
 

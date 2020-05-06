@@ -34,12 +34,12 @@
             <h5>主机名：{{ obj.hostname }}</h5>
             <h5>主机ip：{{ obj.hostip }}</h5>
             <h5>主机配置：{{ obj.hostconfig }}</h5>
-            <h5>主机登录账户：{{ obj2.hostuser }}</h5>
-            <h5>主机登录密码：{{ obj2.hostpasswd }}</h5>
-            <h5>主机登录端口：{{ obj2.hostport}}</h5>
-            <h5>主机存放位置：{{ obj3.idcname }}</h5>
-            <h5>主机代理商：{{ obj3.idcagent }}</h5>
-            <h5>主机地址：{{ obj3.idcaddress }}</h5>
+            <h5>主机登录账户：{{ obj.billing_managerid.hostuser }}</h5>
+            <h5>主机登录密码：{{ obj.billing_managerid.hostpasswd }}</h5>
+            <h5>主机登录端口：{{ obj.billing_managerid.hostport}}</h5>
+            <h5>主机存放位置：{{ obj.billing_idcid.idcname }}</h5>
+            <h5>主机代理商：{{ obj.billing_idcid.idcagent }}</h5>
+            <h5>主机地址：{{ obj.billing_idcid.idcaddress }}</h5>
 
 
         </div>
